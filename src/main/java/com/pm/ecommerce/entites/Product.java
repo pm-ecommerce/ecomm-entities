@@ -26,4 +26,7 @@ public class Product {
     List<Image> images;
 
     Vendor vendor;
+
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = ProductAttribute.class)
+    private List<ProductAttribute> attributes;
 }
