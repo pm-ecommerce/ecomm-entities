@@ -1,7 +1,6 @@
 package com.pm.ecommerce.entites;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.sql.Timestamp;
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
