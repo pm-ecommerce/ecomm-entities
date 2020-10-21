@@ -19,6 +19,5 @@ public class Role {
     private String name;
 
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = Permission.class)
-    @NotNull
     private List<Permission> permissions;
 }

@@ -15,7 +15,6 @@ public class CartItem {
     private int id;
 
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class)
-    @NotNull
     private Product product;
 
     @Column(columnDefinition = "int default 1")

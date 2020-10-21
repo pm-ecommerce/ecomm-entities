@@ -7,15 +7,15 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Entity(name = "products")
+@Entity()
 @Data
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(targetEntity = Category.class, cascade = CascadeType.REMOVE)
-    @NotNull
+    @ManyToOne(targetEntity = Category.class, cascade = CascadeType.DETACH)
     private Category category;
 
     @NotNull
@@ -36,7 +36,6 @@ public class Product {
     private List<Image> images;
 
     @ManyToOne(targetEntity = Vendor.class)
-    @NotNull
     private Vendor vendor;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = ProductAttribute.class)

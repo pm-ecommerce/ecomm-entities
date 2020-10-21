@@ -19,11 +19,10 @@ public class Order {
     @OneToOne(targetEntity = Account.class, cascade = CascadeType.DETACH)
     private Account user;
 
-    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
-    @NotNull
+    @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
     private Address billingAddress;
 
-    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
     @NotNull
     private Address shippingAddress;
 
@@ -36,7 +35,7 @@ public class Order {
     @NotNull
     private List<Transaction> transactions;
 
-    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.PERSIST)
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH)
     @NotNull
     private List<OrderItem> items;
 

@@ -4,9 +4,10 @@ package com.pm.ecommerce.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Attribute {
+@Entity
+@Table(name = "attributes")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Attribute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;

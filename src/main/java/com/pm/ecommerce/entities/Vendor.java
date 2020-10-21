@@ -3,16 +3,14 @@ package com.pm.ecommerce.entities;
 import com.pm.ecommerce.enums.VendorStatus;
 import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "vendors")
+@Entity()
 @Data
+@Table(name = "vendors")
 public class Vendor extends Account {
     private String username;
 
@@ -24,7 +22,6 @@ public class Vendor extends Account {
     private VendorStatus status;
 
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Address.class)
-    @NotNull
     private Address address;
 
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = Card.class)

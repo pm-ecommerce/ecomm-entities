@@ -1,14 +1,14 @@
 package com.pm.ecommerce.entities;
 
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Data
-@Table(name = "cart")
+@Table(name = "carts")
 public class Cart {
 
     @Id
@@ -25,6 +25,5 @@ public class Cart {
     private Account user;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = CartItem.class)
-    @NotNull
     private List<CartItem> cartItems;
 }

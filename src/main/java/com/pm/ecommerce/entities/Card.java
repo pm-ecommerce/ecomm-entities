@@ -1,14 +1,14 @@
 package com.pm.ecommerce.entities;
 
 import com.pm.ecommerce.enums.CardType;
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "payment_cards")
 @Data
+@Table(name = "cards")
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,6 @@ public class Card {
     @NotNull
     private CardType type;
 
-    @NotNull
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Account.class)
     private Account account;
 }

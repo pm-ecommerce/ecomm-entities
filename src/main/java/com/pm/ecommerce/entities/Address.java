@@ -1,14 +1,14 @@
 package com.pm.ecommerce.entities;
 
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "addresses")
 @Data
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "addresses")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
