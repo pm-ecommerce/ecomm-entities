@@ -1,6 +1,5 @@
-package com.pm.ecommerce.entites;
+package com.pm.ecommerce.entities;
 
-import com.pm.ecommerce.enums.OrderItemStatus;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,8 +8,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "order_items")
-public class OrderItem {
+@Table(name = "cart_items")
+public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,6 +26,7 @@ public class OrderItem {
     @NotNull
     private double rate;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItemAttribute.class)
-    private List<OrderItemAttribute> attributes;
+    // optional
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class)
+    private List<CartItemAttribute> attributes;
 }

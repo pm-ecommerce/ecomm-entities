@@ -1,4 +1,4 @@
-package com.pm.ecommerce.entites;
+package com.pm.ecommerce.entities;
 
 import com.pm.ecommerce.enums.CardType;
 import javax.validation.constraints.NotNull;

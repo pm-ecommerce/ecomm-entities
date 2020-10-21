@@ -1,4 +1,4 @@
-package com.pm.ecommerce.entites;
+package com.pm.ecommerce.entities;
 
 import lombok.Data;
 
@@ -8,8 +8,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "cart_items")
-public class CartItem {
+@Table(name = "order_items")
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,7 +26,6 @@ public class CartItem {
     @NotNull
     private double rate;
 
-    // optional
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class)
-    private List<CartItemAttribute> attributes;
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItemAttribute.class)
+    private List<OrderItemAttribute> attributes;
 }

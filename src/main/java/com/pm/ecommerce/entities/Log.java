@@ -1,4 +1,4 @@
-package com.pm.ecommerce.entites;
+package com.pm.ecommerce.entities;
 
 import lombok.Data;
 
@@ -7,14 +7,14 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@Table(name = "errors")
-public class Error {
+@Table(name = "logs")
+public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
-    private int code;
+    private String type;
 
     @NotNull
     private String message;
