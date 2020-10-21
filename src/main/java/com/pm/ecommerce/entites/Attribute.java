@@ -2,18 +2,15 @@ package com.pm.ecommerce.entites;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Attribute {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    protected int id;
 
-    private String name;
-
-
+    @NotNull
+    protected String name;
 }
-
-

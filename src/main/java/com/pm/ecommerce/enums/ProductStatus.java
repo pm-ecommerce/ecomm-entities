@@ -5,5 +5,6 @@ public enum ProductStatus {
     UPDATED,
     WAITING_APPROVAL,
     UNAPPROVED,
-    PUBLISHED
+    PUBLISHED,
+    DELETED // soft delete products
 }

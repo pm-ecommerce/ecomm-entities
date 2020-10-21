@@ -1,24 +1,38 @@
 package com.pm.ecommerce.entites;
 
 import com.pm.ecommerce.enums.CardType;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "payment_cards")
 @Data
 public class Card {
-    String holder;
-    String number;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    int expMonth;
-    int expYear;
+    @NotNull
+    private String holder;
 
-    int securityCode;
+    @NotNull
+    private String number;
 
-    CardType type;
+    @NotNull
+    private int expMonth;
 
-    Account account;
+    @NotNull
+    private int expYear;
+
+    @NotNull
+    private int securityCode;
+
+    @NotNull
+    private CardType type;
+
+    @NotNull
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Account.class)
+    private Account account;
 }

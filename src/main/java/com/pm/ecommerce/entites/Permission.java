@@ -2,19 +2,22 @@ package com.pm.ecommerce.entites;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity(name = "images")
+@Entity
 @Data
-public class Image {
+@Table(name = "permissions")
+public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @NotNull
+    private String action;
+
+    @NotNull
+    private String path;
+
     private String name;
 }

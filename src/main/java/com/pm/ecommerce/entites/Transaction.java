@@ -2,10 +2,8 @@ package com.pm.ecommerce.entites;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity(name = "transaction_history")
@@ -15,9 +13,12 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @OneToOne(targetEntity = Card.class, cascade = CascadeType.PERSIST)
+    @NotNull
     private Card card;
 
+    @Column(columnDefinition = "DOUBLE DEFAULT 0.00")
     private double amount;
 
-    Timestamp createdAt;
+    private Timestamp createdAt;
 }

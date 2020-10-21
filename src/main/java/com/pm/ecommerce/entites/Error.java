@@ -7,16 +7,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@Table(name = "options")
-public class Option {
+@Table(name = "errors")
+public class Error {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
-    private String name;
+    private int code;
 
-    @Column(columnDefinition = "double default 0.00")
-    private double price;
+    @NotNull
+    private String message;
 }
-

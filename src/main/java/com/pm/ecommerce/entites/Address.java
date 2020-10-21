@@ -1,5 +1,6 @@
 package com.pm.ecommerce.entites;
 
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,19 +8,28 @@ import javax.persistence.*;
 @Entity
 @Table(name = "addresses")
 @Data
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    String address1;
-    String address2;
-    String zipcode;
-    String city;
+    @NotNull
+    private String address1;
 
+    private String address2;
+
+    @NotNull
+    private String zipcode;
+
+    @NotNull
+    private String city;
+
+    @NotNull
     @Column(length = 2)
-    String state;
+    private String state;
 
+    @NotNull
     @Column(length = 3)
-    String country;
+    private String country;
 }

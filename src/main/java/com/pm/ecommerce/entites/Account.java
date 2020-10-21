@@ -1,37 +1,41 @@
 package com.pm.ecommerce.entites;
 
+import javax.validation.constraints.NotNull;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "accounts")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Account {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;
 
+    @NotNull
     protected String name;
 
+    @NotNull
     protected String email;
 
     // remember to hash
+    @NotNull
     protected String password;
 
     private Timestamp createdDate;
 
     private Timestamp updatedDate;
 
-    @Version
-    int version;
-
     // hash the password here
     @PrePersist
-    void prePersist() {
+    protected void prePersist() {
 
     }
 
     // hash the password here
     @PreUpdate
-    void preUpdate() {
+    protected void preUpdate() {
 
     }
 }

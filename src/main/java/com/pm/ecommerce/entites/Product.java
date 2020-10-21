@@ -4,6 +4,7 @@ import com.pm.ecommerce.enums.ProductStatus;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity(name = "products")
@@ -13,19 +14,30 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    Category category;
+    @ManyToOne(targetEntity = Category.class, cascade = CascadeType.REMOVE)
+    @NotNull
+    private Category category;
 
-    String name;
-    double price;
+    @NotNull
+    private String name;
+
+    //REST URI compatible string
+    @NotNull
+    private String slug;
+
+    private double price;
 
     @Column(columnDefinition = "text")
-    String description;
+    private String description;
 
-    ProductStatus status;
+    private ProductStatus status;
 
-    List<Image> images;
+    @OneToMany(targetEntity = Image.class, cascade = CascadeType.PERSIST)
+    private List<Image> images;
 
-    Vendor vendor;
+    @ManyToOne(targetEntity = Vendor.class)
+    @NotNull
+    private Vendor vendor;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = ProductAttribute.class)
     private List<ProductAttribute> attributes;

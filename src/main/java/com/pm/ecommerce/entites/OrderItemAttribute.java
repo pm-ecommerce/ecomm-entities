@@ -9,10 +9,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "employees")
 @Data
-public class Employee extends Account {
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Role.class)
+@Table(name = "order_item_attributes")
+public class OrderItemAttribute extends Attribute {
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Option.class)
     @NotNull
-    private Role role;
+    private Option option;
 }
+
+
