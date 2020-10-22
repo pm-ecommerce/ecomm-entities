@@ -16,10 +16,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(targetEntity = Account.class, cascade = CascadeType.DETACH)
-    private Account user;
+    @OneToOne(targetEntity = User.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    private User user;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
+    @NotNull
     private Address billingAddress;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
@@ -31,11 +32,11 @@ public class Order {
 
     private OrderStatus status;
 
-    @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.DETACH)
+    @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @NotNull
     private List<Transaction> transactions;
 
-    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH)
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @NotNull
     private List<OrderItem> items;
 

@@ -21,12 +21,12 @@ public class Vendor extends Account {
 
     private VendorStatus status;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Address.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Address.class, fetch = FetchType.LAZY)
     private Address address;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = Card.class)
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = Card.class, fetch = FetchType.LAZY)
     private List<Card> cards;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Transaction.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Transaction.class, fetch = FetchType.LAZY)
     private Transaction payment;
 }

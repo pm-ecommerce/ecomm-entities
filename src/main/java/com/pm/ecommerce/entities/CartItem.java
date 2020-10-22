@@ -26,6 +26,6 @@ public class CartItem {
     private double rate;
 
     // optional
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class)
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class, fetch = FetchType.LAZY)
     private List<CartItemAttribute> attributes;
 }

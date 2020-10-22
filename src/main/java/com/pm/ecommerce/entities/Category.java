@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity()
 @Data
@@ -20,8 +19,9 @@ public class Category {
     @OneToOne(cascade = CascadeType.PERSIST, targetEntity = Image.class)
     private Image image;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = Product.class)
-    private List<Product> products;
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class)
+    private Vendor vendor;
 
+    @Column(name = "is_deleted")
     private boolean isDeleted;
 }

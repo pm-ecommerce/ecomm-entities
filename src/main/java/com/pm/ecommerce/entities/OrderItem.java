@@ -14,7 +14,7 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class, fetch = FetchType.LAZY)
     private Product product;
 
     @Column(columnDefinition = "int default 1")
@@ -25,6 +25,6 @@ public class OrderItem {
     @NotNull
     private double rate;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItemAttribute.class)
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItemAttribute.class, fetch = FetchType.LAZY)
     private List<OrderItemAttribute> attributes;
 }

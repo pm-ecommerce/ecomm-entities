@@ -21,7 +21,6 @@ public class Product {
     @NotNull
     private String name;
 
-    //REST URI compatible string
     @NotNull
     private String slug;
 
@@ -35,9 +34,9 @@ public class Product {
     @OneToMany(targetEntity = Image.class, cascade = CascadeType.PERSIST)
     private List<Image> images;
 
-    @ManyToOne(targetEntity = Vendor.class)
+    @OneToOne(targetEntity = Vendor.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     private Vendor vendor;
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = ProductAttribute.class)
+    @OneToMany(cascade = CascadeType.PERSIST, targetEntity = ProductAttribute.class, fetch = FetchType.LAZY)
     private List<ProductAttribute> attributes;
 }
