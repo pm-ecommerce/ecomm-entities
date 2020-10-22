@@ -34,6 +34,9 @@ public class Product {
     @OneToMany(targetEntity = Image.class, cascade = CascadeType.PERSIST)
     private List<Image> images;
 
+    @OneToOne(targetEntity = Vendor.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    private Vendor vendor;
+
     @OneToMany(cascade = CascadeType.PERSIST, targetEntity = ProductAttribute.class, fetch = FetchType.LAZY)
     private List<ProductAttribute> attributes;
 }
