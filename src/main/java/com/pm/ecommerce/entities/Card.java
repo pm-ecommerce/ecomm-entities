@@ -31,7 +31,4 @@ public class Card {
 
     @NotNull
     private CardType type;
-
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Account.class)
-    private Account account;
 }

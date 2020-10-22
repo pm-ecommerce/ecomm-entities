@@ -26,9 +26,9 @@ public class ScheduledDelivery {
     //actual delivered date
     private Timestamp deliveredDate;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItem.class)
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = OrderItem.class, fetch = FetchType.LAZY)
     private List<OrderItem> items;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class, fetch = FetchType.LAZY)
     private Vendor vendor;
 }

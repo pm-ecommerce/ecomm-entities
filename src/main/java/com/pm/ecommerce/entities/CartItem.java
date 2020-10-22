@@ -14,7 +14,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class, fetch = FetchType.LAZY)
     private Product product;
 
     @Column(columnDefinition = "int default 1")
@@ -26,6 +26,6 @@ public class CartItem {
     private double rate;
 
     // optional
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class)
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class, fetch = FetchType.LAZY)
     private List<CartItemAttribute> attributes;
 }

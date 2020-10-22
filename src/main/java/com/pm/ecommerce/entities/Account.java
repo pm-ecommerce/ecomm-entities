@@ -1,10 +1,13 @@
 package com.pm.ecommerce.entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
+@Data
 @Table(name = "accounts")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account {

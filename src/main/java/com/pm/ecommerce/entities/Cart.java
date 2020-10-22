@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 @Table(name = "carts")
 public class Cart {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,8 +20,8 @@ public class Cart {
     @NotNull
     private String sessionId;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Account.class)
-    private Account user;
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = User.class, fetch = FetchType.LAZY)
+    private User user;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = CartItem.class)
     private List<CartItem> cartItems;
