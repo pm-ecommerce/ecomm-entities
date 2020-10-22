@@ -14,7 +14,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Product.class)
     private Product product;
 
     @Column(columnDefinition = "int default 1")
