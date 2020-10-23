@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 @Entity()
 @Data
 @Table(name = "transactions")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
