@@ -15,20 +15,31 @@ public class Card {
     private int id;
 
     @NotNull
-    private String holder;
+    private String token;
 
     @NotNull
-    private String number;
+    private CardType brand;
 
     @NotNull
+    private int last4;
+
+    @NotNull
+    @Column(name = "customer_id")
+    private String customerId;
+
+    @NotNull
+    @Column(name = "exp_month")
     private int expMonth;
 
     @NotNull
+    @Column(name = "exp_year")
     private int expYear;
 
     @NotNull
-    private int securityCode;
+    @Column(name = "card_id")
+    private String cardId;
 
-    @NotNull
-    private CardType type;
+    //TODO: Make it not null
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    private Account user;
 }
