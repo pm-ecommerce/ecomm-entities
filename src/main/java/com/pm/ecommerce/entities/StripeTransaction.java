@@ -1,11 +1,14 @@
 package com.pm.ecommerce.entities;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "stripe_transactions")
+@Data
 public class StripeTransaction extends Transaction {
     String status;
 
