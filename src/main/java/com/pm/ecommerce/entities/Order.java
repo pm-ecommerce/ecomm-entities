@@ -36,7 +36,7 @@ public class Order {
     @NotNull
     private List<Transaction> transactions;
 
-    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @NotNull
     private List<OrderItem> items;
 
