@@ -21,9 +21,6 @@ public class CartItem {
     @NotNull
     private int quantity;
 
-    @NotNull
-    private int cardId;
-
     @Column(columnDefinition = "int default 0.00")
     @NotNull
     private double rate;
