@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -23,6 +23,6 @@ public class Cart {
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = User.class, fetch = FetchType.LAZY)
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = CartItem.class)
-    private List<CartItem> cartItems;
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = CartItem.class, orphanRemoval = true)
+    private Set<CartItem> cartItems;
 }
