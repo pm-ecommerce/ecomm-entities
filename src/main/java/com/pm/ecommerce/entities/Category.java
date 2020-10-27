@@ -22,6 +22,9 @@ public class Category {
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class)
     private Vendor vendor;
 
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Category.class)
+    private Category parent;
+
     @Column(name = "is_deleted")
     private boolean isDeleted;
 }

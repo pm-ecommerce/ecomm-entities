@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Entity()
 @Data
@@ -31,12 +32,12 @@ public class Product {
 
     private ProductStatus status;
 
-    @OneToMany(targetEntity = Image.class, cascade = CascadeType.PERSIST)
-    private List<Image> images;
+    @OneToMany(targetEntity = Image.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Image> images;
 
     @OneToOne(targetEntity = Vendor.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     private Vendor vendor;
 
-    @OneToMany(cascade = CascadeType.PERSIST, targetEntity = ProductAttribute.class, fetch = FetchType.LAZY)
-    private List<ProductAttribute> attributes;
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = ProductAttribute.class, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<ProductAttribute> attributes;
 }
