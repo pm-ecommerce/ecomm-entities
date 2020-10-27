@@ -2,6 +2,7 @@ package com.pm.ecommerce.entities;
 
 import com.pm.ecommerce.enums.OrderStatus;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,11 +21,9 @@ public class Order {
     private User user;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
-    @NotNull
     private Address billingAddress;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
-    @NotNull
     private Address shippingAddress;
 
     @Column(columnDefinition = "double default 0.00")
@@ -33,11 +32,9 @@ public class Order {
     private OrderStatus status;
 
     @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-    @NotNull
     private List<Transaction> transactions;
 
-    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @NotNull
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     private List<OrderItem> items;
 
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
