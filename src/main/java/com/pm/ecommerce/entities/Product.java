@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.Set;
 
 @Entity()
@@ -18,6 +17,9 @@ public class Product {
 
     @ManyToOne(targetEntity = Category.class, cascade = CascadeType.DETACH)
     private Category category;
+
+    @ManyToOne(targetEntity = Category.class, cascade = CascadeType.DETACH)
+    private Category subCategory;
 
     @NotNull
     private String name;
