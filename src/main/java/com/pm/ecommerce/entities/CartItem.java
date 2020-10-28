@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,5 +27,5 @@ public class CartItem {
 
     // optional
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = CartItemAttribute.class, fetch = FetchType.LAZY)
-    private List<CartItemAttribute> attributes;
+    private Set<CartItemAttribute> attributes;
 }
