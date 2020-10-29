@@ -19,9 +19,6 @@ public class Category {
     @OneToOne(cascade = CascadeType.PERSIST, targetEntity = Image.class)
     private Image image;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class)
-    private Vendor vendor;
-
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Category.class)
     private Category parent;
 
