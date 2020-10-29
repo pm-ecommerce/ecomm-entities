@@ -2,10 +2,8 @@ package com.pm.ecommerce.entities;
 
 import com.pm.ecommerce.enums.OrderStatus;
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -26,18 +24,16 @@ public class Order {
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.DETACH)
     private Address shippingAddress;
 
-    @Column(columnDefinition = "double default 0.00")
     private double tax;
 
     private OrderStatus status;
 
-    @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Transaction> transactions;
 
-    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<OrderItem> items;
 
-    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp createdDate;
 
     private Timestamp updatedDate;
