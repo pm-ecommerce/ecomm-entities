@@ -22,7 +22,6 @@ public class Account {
     protected String email;
 
     // remember to hash
-    @NotNull
     protected String password;
 
     private Timestamp createdDate;
