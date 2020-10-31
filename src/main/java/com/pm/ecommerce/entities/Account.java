@@ -22,7 +22,6 @@ public class Account {
     protected String email;
 
     // remember to hash
-    @NotNull
     protected String password;
 
     private Timestamp createdDate;
@@ -38,6 +37,5 @@ public class Account {
     // hash the password here
     @PreUpdate
     protected void preUpdate() {
-
     }
 }

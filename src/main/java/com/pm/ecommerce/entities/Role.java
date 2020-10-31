@@ -18,6 +18,6 @@ public class Role {
     //admin, vendor, customer, manager, qa, anything
     private String name;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = Permission.class, orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Permission.class)
     private List<Permission> permissions;
 }
