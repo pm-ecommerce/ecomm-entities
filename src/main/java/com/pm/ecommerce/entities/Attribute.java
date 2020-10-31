@@ -17,4 +17,5 @@ public class Attribute {
 
     @NotNull
     protected String name;
+
 }

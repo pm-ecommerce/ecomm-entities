@@ -37,6 +37,5 @@ public class Account {
     // hash the password here
     @PreUpdate
     protected void preUpdate() {
-
     }
 }
