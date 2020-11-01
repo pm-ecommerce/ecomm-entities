@@ -31,4 +31,8 @@ public class ScheduledDelivery {
 
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = Vendor.class, fetch = FetchType.LAZY)
     private Vendor vendor;
+
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = User.class, fetch = FetchType.LAZY)
+    private User user;
+
 }
