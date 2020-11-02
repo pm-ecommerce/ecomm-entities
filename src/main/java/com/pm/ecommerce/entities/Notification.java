@@ -17,6 +17,7 @@ public class Notification {
 
     private String receiver;
 
+    @Column(columnDefinition = "text")
     private String message;
 
     private String subject;
@@ -24,4 +25,6 @@ public class Notification {
     private Timestamp createdDate;
 
     private Timestamp sentDate;
+
+    private boolean delivered;
 }
