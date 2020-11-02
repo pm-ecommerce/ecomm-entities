@@ -12,6 +12,6 @@ public class User extends Account {
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = Card.class, fetch = FetchType.LAZY)
     private List<Card> cards;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = Address.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Address.class, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Address> addresses;
 }
