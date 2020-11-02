@@ -18,6 +18,6 @@ public class Role {
     //admin, vendor, customer, manager, qa, anything
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Permission.class)
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Permission.class, fetch = FetchType.EAGER)
     private List<Permission> permissions;
 }
