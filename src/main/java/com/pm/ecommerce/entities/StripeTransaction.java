@@ -3,12 +3,14 @@ package com.pm.ecommerce.entities;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "stripe_transactions")
 @Data
+@DiscriminatorValue(value = "stripe_transactions")
 public class StripeTransaction extends Transaction {
     String status;
 
