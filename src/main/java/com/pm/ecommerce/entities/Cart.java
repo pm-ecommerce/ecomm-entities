@@ -20,7 +20,7 @@ public class Cart {
     @NotNull
     private String sessionId;
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = User.class, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = User.class, fetch = FetchType.LAZY)
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = CartItem.class, orphanRemoval = true)
