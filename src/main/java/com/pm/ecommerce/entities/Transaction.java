@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Data
 @Table(name = "transactions")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue(value = "transactions")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
